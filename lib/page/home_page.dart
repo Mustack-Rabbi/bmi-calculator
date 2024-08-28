@@ -8,6 +8,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  double _currentSliderValue = 20;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +29,10 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       height: 100,
                       color: Colors.amber,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [Icon(Icons.male), Text("MALE")],
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -37,6 +42,10 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       height: 100,
                       color: Colors.amber,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [Icon(Icons.female), Text("FEMALE")],
+                      ),
                     ),
                   )
                 ],
@@ -48,6 +57,32 @@ class _HomePageState extends State<HomePage> {
                 height: 100,
                 width: double.infinity,
                 color: Colors.amber,
+                child: Column(
+                  children: [
+                    Text("HEIGHT",
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          _currentSliderValue.round().toString(),
+                          style: TextStyle(
+                              fontSize: 22, fontWeight: FontWeight.bold),
+                        ),
+                        Text("cm")
+                      ],
+                    ),
+                    Slider(
+                      value: _currentSliderValue,
+                      max: 200,
+                      onChanged: (double value) {
+                        setState(() {
+                          _currentSliderValue = value;
+                        });
+                      },
+                    ),
+                  ],
+                ),
               ),
               SizedBox(
                 height: 10,
@@ -75,7 +110,10 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 10,
               ),
-              ElevatedButton(onPressed: () {}, child: Text("CALCULATE"),)
+              ElevatedButton(
+                onPressed: () {},
+                child: Text("CALCULATE"),
+              )
             ],
           ),
         ),
