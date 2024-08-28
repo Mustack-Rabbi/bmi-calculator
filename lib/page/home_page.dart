@@ -45,12 +45,15 @@ class _HomePageState extends State<HomePage> {
                     width: 10,
                   ),
                   Expanded(
-                    child: Container(
-                      height: 100,
-                      color: Colors.amber,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [Icon(Icons.female), Text("FEMALE")],
+                    child: InkWell(
+                      onTap: (){},
+                      child: Container(
+                        height: 100,
+                        color: Colors.amber,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [Icon(Icons.female), Text("FEMALE")],
+                        ),
                       ),
                     ),
                   )
@@ -59,35 +62,38 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 10,
               ),
-              Container(
-                height: 100,
-                width: double.infinity,
-                color: Colors.amber,
-                child: Column(
-                  children: [
-                    Text("HEIGHT",
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          _currentSliderValue.round().toString(),
-                          style: TextStyle(
-                              fontSize: 22, fontWeight: FontWeight.bold),
-                        ),
-                        Text("cm")
-                      ],
-                    ),
-                    Slider(
-                      value: _currentSliderValue,
-                      max: 200,
-                      onChanged: (double value) {
-                        setState(() {
-                          _currentSliderValue = value;
-                        });
-                      },
-                    ),
-                  ],
+              InkWell(
+                onTap: (){},
+                child: Container(
+                  height: 100,
+                  width: double.infinity,
+                  color: Colors.amber,
+                  child: Column(
+                    children: [
+                      Text("HEIGHT",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            _currentSliderValue.round().toString(),
+                            style: TextStyle(
+                                fontSize: 22, fontWeight: FontWeight.bold),
+                          ),
+                          Text("cm")
+                        ],
+                      ),
+                      Slider(
+                        value: _currentSliderValue,
+                        max: 200,
+                        onChanged: (double value) {
+                          setState(() {
+                            _currentSliderValue = value;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ),
               SizedBox(
