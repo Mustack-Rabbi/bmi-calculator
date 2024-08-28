@@ -218,34 +218,24 @@ class _HomePageState extends State<HomePage> {
               ),
               ElevatedButton(
                 onPressed: () {
-                
-                  bmi = weight / pow(_currentSliderValue/100, 2);
+                  bmi = weight / pow(_currentSliderValue / 100, 2);
 
-                  if (bmi>25){
+                  if (bmi > 25) {
                     result = "Overweight";
-                  } else if (bmi>18.5){
-                     result = "Normal";
-
-                  }else {
+                  } else if (bmi > 18.5) {
+                    result = "Normal";
+                  } else {
                     result = "Underweight";
                   }
 
-
-
-
-                showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: Text("You Are $result"),
-                //  content: const Text("your hight , age"),
-              
-              
-                ),
-              );
-setState(() {
-  
-});
-
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: Text("You Are $result"),
+                      //  content: const Text("your hight , age"),
+                    ),
+                  );
+                  setState(() {});
                 },
                 child: Text("CALCULATE"),
               )
