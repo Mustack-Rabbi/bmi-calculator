@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,6 +13,8 @@ class _HomePageState extends State<HomePage> {
   double _currentSliderValue = 20;
   int weight = 0;
   int age = 0;
+  String result = "";
+  double bmi = 0.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -213,7 +217,36 @@ class _HomePageState extends State<HomePage> {
                 height: 10,
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                
+                  bmi = weight / pow(_currentSliderValue/100, 2);
+
+                  if (bmi>25){
+                    result = "Overweight";
+                  } else if (bmi>18.5){
+                     result = "Normal";
+
+                  }else {
+                    result = "Underweight";
+                  }
+
+
+
+
+                showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: Text("You Are $result"),
+                //  content: const Text("your hight , age"),
+              
+              
+                ),
+              );
+setState(() {
+  
+});
+
+                },
                 child: Text("CALCULATE"),
               )
             ],
