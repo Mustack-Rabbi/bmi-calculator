@@ -9,6 +9,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   double _currentSliderValue = 20;
+  int weight = 0;
+  int age = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,6 +96,56 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       height: 100,
                       color: Colors.amber,
+                      child: Column(
+                        children: [
+                          Text("WEIGHT",
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text(
+                            weight.toString(),
+                            style: TextStyle(
+                                fontSize: 22, fontWeight: FontWeight.bold),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                decoration: const ShapeDecoration(
+                                  color: Colors.black,
+                                  shape: CircleBorder(),
+                                ),
+                                child: IconButton(
+                                  icon: const Icon(Icons.remove),
+                                  color: Colors.white,
+                                  onPressed: () {
+                                    if (weight > 0) {
+                                      weight--;
+                                    }
+
+                                    setState(() {});
+                                  },
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Container(
+                                decoration: const ShapeDecoration(
+                                  color: Colors.black,
+                                  shape: CircleBorder(),
+                                ),
+                                child: IconButton(
+                                  icon: const Icon(Icons.add),
+                                  color: Colors.white,
+                                  onPressed: () {
+                                    weight++;
+                                    setState(() {});
+                                  },
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -103,8 +155,58 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       height: 100,
                       color: Colors.amber,
+                      child: Column(
+                        children: [
+                          Text("AGE",
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text(
+                            age.toString(),
+                            style: TextStyle(
+                                fontSize: 22, fontWeight: FontWeight.bold),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                decoration: const ShapeDecoration(
+                                  color: Colors.black,
+                                  shape: CircleBorder(),
+                                ),
+                                child: IconButton(
+                                  icon: const Icon(Icons.remove),
+                                  color: Colors.white,
+                                  onPressed: () {
+                                    if (age > 0) {
+                                      age--;
+                                    }
+
+                                    setState(() {});
+                                  },
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Container(
+                                decoration: const ShapeDecoration(
+                                  color: Colors.black,
+                                  shape: CircleBorder(),
+                                ),
+                                child: IconButton(
+                                  icon: const Icon(Icons.add),
+                                  color: Colors.white,
+                                  onPressed: () {
+                                    age++;
+                                    setState(() {});
+                                  },
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
-                  )
+                  ),
                 ],
               ),
               SizedBox(
